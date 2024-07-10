@@ -66,11 +66,74 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+ /* *{
+  margin: 0;
+  padding: 0;
+ }
 .book{
-  background-color: red;
+  background-color: rgb(167, 152, 152);
   margin: 20px;
 }
 
 .cont{
   display: flex;
+  flex-wrap: wrap;
+  height:77.7vh;
+}
+
+.titlee{
+  background-color: aquamarine;
+} */
+
+header {
+  background-color: #ecebff;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  margin: 10px;
+  color: #574ff1;
+}
+
+.logo {
+  width: 25%;
+}
+
+nav {
+  width: 50%;
+}
+
+.icons {
+  width: 25%;
+}
+
+footer {
+  background-color: #ecebff;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer h2 {
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+}
+.abt{
+  height: 77.7vh;
 }
