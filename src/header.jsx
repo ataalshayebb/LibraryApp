@@ -3,7 +3,12 @@ import {Link} from 'react-router-dom'
 import Signup from "./signup";
 
 function Header() {
-
+    const [logo, setLogo]=useState(false);
+    if(localStorage.getItem("name")){
+    setTimeout(() => {
+        setLogo(true)
+    }, 2100);
+}
     const isLoggedIn = localStorage.getItem('email') !== null; 
     const Logout = () => {
         localStorage.clear();
@@ -20,8 +25,9 @@ function Header() {
                     <li>
                         <Link to='/aboutus'>About Us</Link>
                         <Link to='/contactus'>Contact Us</Link> 
+                        <Link to='/catalog'>Catalog</Link>
                         <Link to='/'>Home</Link> 
-                        {isLoggedIn ? (
+                        {isLoggedIn && logo ? (
                     <li>
                         <button onClick={Logout}>Log Out</button>
                     </li>
