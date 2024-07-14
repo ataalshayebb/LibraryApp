@@ -11,7 +11,7 @@ function Cataloh() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://reacttask-2bf93-default-rtdb.europe-west1.firebasedatabase.app/books/boooks/boooks.json"
+          "https://library2-4e19d-default-rtdb.europe-west1.firebasedatabase.app//books/boooks/boooks.json"
         );
         if (response.data) {
           const formattedData = Object.keys(response.data).map((key) => ({

@@ -27,11 +27,8 @@ function Update() {
       isbn: isbn
     };
 
-    console.log('Posting bookData:', bookData);
-
     try {
-      const response = await axios.post(`https://reacttask-2bf93-default-rtdb.europe-west1.firebasedatabase.app/books/boooks/boooks/${isbn}.json`, bookData);
-      console.log('Data successfully posted:', response.data);
+      const response = await axios.post(`https://library2-4e19d-default-rtdb.europe-west1.firebasedatabase.app//books/boooks/boooks/${isbn}.json`, bookData);
       
       // Clear input fields
       titleRef.current.value = '';
@@ -40,68 +37,53 @@ function Update() {
       setShowAlert(false);
     } catch (error) {
       console.error('Error posting data:', error);
-      if (error.response) {
-        console.error('Response data:', error.response.data);
-        console.error('Response status:', error.response.status);
-        console.error('Response headers:', error.response.headers);
-      } else if (error.request) {
-        console.error('Request data:', error.request);
-      } else {
-        console.error('Error message:', error.message);
-      }
     }
   };
 
   return (
     <>
       <Header />
-      <div style={styles.container}>
-        <form style={styles.form} onSubmit={handleSubmit}>
-          <h2 style={styles.heading}>Add a book :</h2>
-          <div style={styles.formGroup}>
-            <label htmlFor="title" style={styles.label}>
-              Book Name:
-            </label>
+      <div className="flex justify-center items-center h-screen flex-col">
+        <form className="w-80 p-6 border border-gray-300 rounded bg-gray-100" onSubmit={handleSubmit}>
+          <h2 className="text-center mb-4 text-2xl">Add a book :</h2>
+          <div className="mb-4">
+            <label htmlFor="title" className="block mb-2">Book Name:</label>
             <input
               type="text"
               id="title"
               name="title"
               ref={titleRef}
-              style={styles.input}
+              className="w-full p-2 border border-gray-300 rounded"
             />
           </div>
-          <div style={styles.formGroup}>
-            <label htmlFor="author" style={styles.label}>
-              Author:
-            </label>
+          <div className="mb-4">
+            <label htmlFor="author" className="block mb-2">Author:</label>
             <input
               type="text"
               id="author"
               name="author"
               ref={authorRef}
-              style={styles.input}
+              className="w-full p-2 border border-gray-300 rounded"
             />
           </div>
-          <div style={styles.formGroup}>
-            <label htmlFor="isbn" style={styles.label}>
-              ISBN:
-            </label>
+          <div className="mb-4">
+            <label htmlFor="isbn" className="block mb-2">ISBN:</label>
             <input
               type="number"
               id="isbn"
               name="isbn"
               ref={isbnRef}
-              style={styles.input}
+              className="w-full p-2 border border-gray-300 rounded"
             />
           </div>
-          <Link to = "catalog">
-          <button type="submit" style={styles.button}>
-            Add
-          </button>
+          <Link to="/catalog">
+            <button type="submit" className="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600">
+              Add
+            </button>
           </Link>
         </form>
         {showAlert && (
-          <div style={{ color: 'red', marginTop: '10px' }}>
+          <div className="text-red-500 mt-4">
             Please fill out all fields.
           </div>
         )}
@@ -110,49 +92,5 @@ function Update() {
     </>
   );
 }
-
-const styles = {
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '80vh',
-    flexDirection: 'column',
-  },
-  form: {
-    width: '300px',
-    padding: '20px',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-    backgroundColor: '#f9f9f9',
-  },
-  heading: {
-    textAlign: 'center',
-    marginBottom: '20px',
-  },
-  formGroup: {
-    marginBottom: '15px',
-  },
-  label: {
-    display: 'block',
-    marginBottom: '5px',
-  },
-  input: {
-    width: '100%',
-    padding: '8px',
-    boxSizing: 'border-box',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  button: {
-    width: '100%',
-    padding: '10px',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-};
 
 export default Update;

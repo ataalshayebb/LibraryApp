@@ -4,7 +4,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/fireba
   const firebaseConfig = {
     apiKey: "AIzaSyB2o8jD5-SsVrlzI6g8KAve9fmMMV31mu0",
     authDomain: "reacttask-2bf93.firebaseapp.com",
-    databaseURL: "https://reacttask-2bf93-default-rtdb.europe-west1.firebasedatabase.app",
+    databaseURL: "https://library2-4e19d-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "reacttask-2bf93",
     storageBucket: "reacttask-2bf93.appspot.com",
     messagingSenderId: "271369825259",
